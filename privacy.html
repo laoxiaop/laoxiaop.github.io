@@ -3,104 +3,285 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow, noarchive">
-<title>Privacy Policy</title>
+<title>Privacy Policy · Health Data Tracker</title>
+<meta name="description" content="Privacy Policy for Health Data Tracker: what Google user data the application reads, why, where it is stored, how it is protected, and how to delete it.">
+<link rel="canonical" href="https://laoxiaop.github.io/privacy.html">
 <style>
   :root { color-scheme: light dark; }
   body {
-    margin: 0 auto; max-width: 680px; padding: 72px 24px 96px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.8; color: #1f2328; background: #fff;
+    margin: 0 auto; max-width: 720px; padding: 56px 24px 96px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+    line-height: 1.75; color: #1f2328; background: #fff;
   }
   @media (prefers-color-scheme: dark) {
     body { color: #e6edf3; background: #0d1117; }
     a { color: #6cb6ff; }
-    h2 { border-bottom-color: #30363d; }
     hr { border-color: #30363d; }
-    .muted { color: #8b949e; }
+    .muted, .meta { color: #9198a1; }
+    th { background: #161b22; }
+    td, th { border-color: #30363d; }
+    .callout { background: #161b22; border-color: #30363d; }
   }
-  h1 { font-size: 1.5rem; font-weight: 600; margin: 0 0 .2em; }
-  h2 { font-size: 1rem; font-weight: 600; margin-top: 2.2em; border-bottom: 1px solid #d8dee4; padding-bottom: .35em; }
-  .muted { color: #656d76; font-size: .92rem; }
-  ul { padding-left: 1.3em; }
-  hr { margin: 3em 0; border: 0; border-top: 1px solid #d8dee4; }
+  h1 { font-size: 1.7rem; font-weight: 650; margin: 0 0 .15em; letter-spacing: -.01em; }
+  h2 { font-size: 1.08rem; font-weight: 650; margin-top: 2.3em; }
+  h3 { font-size: .98rem; font-weight: 650; margin-top: 1.6em; }
+  .meta { color: #656d76; font-size: .9rem; }
+  ul { padding-left: 1.25em; }
+  li { margin: .3em 0; }
+  a { color: #0969da; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  hr { margin: 2.8em 0; border: 0; border-top: 1px solid #d8dee4; }
+  table { width: 100%; border-collapse: collapse; margin: 1em 0; font-size: .94rem; }
+  th, td { text-align: left; vertical-align: top; border: 1px solid #d8dee4; padding: .5em .6em; }
+  th { background: #f6f8fa; font-weight: 600; white-space: nowrap; }
+  .callout { background: #f6f8fa; border: 1px solid #d8dee4; border-radius: 6px; padding: .85em 1em; margin: 1.4em 0; }
+  nav a { margin-right: 1.1em; font-size: .94rem; }
 </style>
 </head>
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="muted">Private Client Application · Last updated: 2026-11-07</p>
+<p class="meta">Health Data Tracker · Last updated: 2026-11-09 · Effective: 2026-11-09</p>
 
-<h2>1. Scope</h2>
+<nav aria-label="Site">
+  <a href="./">Home</a>
+  <a href="./privacy.html">Privacy Policy</a>
+  <a href="./terms.html">Terms of Service</a>
+</nav>
+
+<div class="callout">
+  <strong>In one sentence:</strong> Health Data Tracker reads the owner's own Google Health data with
+  read-only permission, keeps it on the owner's own computer, shares it with nobody, and never uses it
+  for advertising, profiling, AI training, or any kind of synthetic or non-consensual intimate imagery.
+</div>
+
+<h2>1. Who this policy is about</h2>
 <p>
-  This policy applies to a <strong>private, single-user application</strong> operated by one individual
-  for their own personal use. The application is not a public service, has no other users, and does not
-  accept registrations.
+  Health Data Tracker ("the application") is a private, single-user software tool built and operated by
+  one individual ("the owner", "I", "we") for their own personal use. The application has exactly one
+  user — its owner. It is not a commercial product, is not offered to the public, does not accept
+  registrations, and has no users other than the owner.
+</p>
+<p>
+  This policy explains what data the application handles, where it comes from, what it is used for, where
+  it is stored, who it is shared with (nobody), and how it is deleted. It applies to the application and
+  to this website (<a href="https://laoxiaop.github.io/">laoxiaop.github.io</a>).
 </p>
 
-<h2>2. Data accessed</h2>
+<h2>2. What data is collected</h2>
+
+<h3>2.1 Google user data</h3>
 <p>
-  The application accesses only those data types that the user <strong>explicitly authorizes on the
-  third-party service's OAuth consent screen</strong>. The exact set of permissions in effect is
-  displayed on that consent screen at the moment of authorization, and the user may decline or
-  revoke them at any time. No data is accessed outside those authorized permissions.
+  The application can read the owner's own data from Google's health service through the
+  <strong>Google Health API</strong>, using OAuth 2.0. It requests only the four <strong>read-only</strong>
+  permissions listed below, and it reads only the data those permissions cover — nothing else.
+</p>
+<table>
+  <thead>
+    <tr><th>Scope</th><th>Data types</th><th>Purpose</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>googlehealth.activity_and_fitness.readonly</code></td>
+      <td>Daily and intraday activity: step count, distance, calories burned, active minutes, floors,
+          exercise sessions and their type/duration</td>
+      <td>Activity and exercise trend charts</td>
+    </tr>
+    <tr>
+      <td><code>googlehealth.health_metrics_and_measurements.readonly</code></td>
+      <td>Body measurements and health metrics recorded by the owner's own devices or entered by the
+          owner: heart rate, weight, body fat and other body composition values, and similar measurements</td>
+      <td>Charts of measured values over time, placed next to the owner's own medical test results</td>
+    </tr>
+    <tr>
+      <td><code>googlehealth.sleep.readonly</code></td>
+      <td>Sleep sessions, sleep stages, sleep duration and timing</td>
+      <td>Sleep duration and timing charts</td>
+    </tr>
+    <tr>
+      <td><code>googlehealth.location.readonly</code></td>
+      <td>Location samples attached to the owner's own exercise sessions (workout routes)</td>
+      <td>Showing the route and distance of the owner's own workouts</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  The application does <strong>not</strong> request or access Gmail, Contacts, Calendar, Drive, Photos,
+  YouTube, or any other Google service. It does not request the owner's name, email address or Google
+  account profile.
 </p>
 
-<h2>3. Storage</h2>
+<h3>2.2 Data the owner records directly</h3>
+<p>
+  The owner also keeps their own medical test results, medication notes and symptom notes in the same
+  local workspace. Those files are created and owned by the owner and are handled exactly as described
+  in sections 4–6.
+</p>
+
+<h3>2.3 Data this website collects</h3>
+<p>
+  <strong>None.</strong> This website is static HTML. It sets no cookies, runs no analytics, contains no
+  advertising or tracking scripts, and has no forms. The hosting provider (GitHub Pages) may keep
+  standard web server access logs, as any web host does; those logs are not available to the application
+  and contain no health data.
+</p>
+
+<h2>3. How the data is obtained and authorised</h2>
 <ul>
-  <li>All retrieved data is stored <strong>locally on the user's own device</strong>.</li>
-  <li>The application has <strong>no cloud backend</strong> and does not upload data to any server.</li>
-  <li>Authorization credentials are kept in the operating system's credential manager, never in
-      plaintext files.</li>
-  <li>No data is synchronized to third-party storage or cloud drives.</li>
+  <li>Authorisation happens once, on <strong>Google's own OAuth consent screen</strong>, where the owner
+      sees each permission and approves it. Declining any permission means the application simply cannot
+      read that data type.</li>
+  <li>The OAuth 2.0 access and refresh tokens are issued by Google and stored in the
+      <strong>Windows Credential Manager</strong> on the owner's computer — never on a server, never in
+      this repository, and never in a plaintext file.</li>
+  <li>The owner can revoke access at any time at
+      <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. Revocation
+      takes effect immediately: the application can no longer read any Google data.</li>
+  <li>The application never asks for the owner's Google password, and it never sees one.</li>
 </ul>
 
-<h2>4. Sharing</h2>
-<p>
-  The application does <strong>not</strong> sell, rent, share, transfer, or disclose any data to third
-  parties, and does not use it for advertising, profiling, credit assessment, or any commercial purpose.
-  No third-party analytics, tracking, or advertising SDKs are used.
-</p>
-
-<h2>5. Retention and deletion</h2>
+<h2>4. How the data is used</h2>
+<p>Google user data obtained through the above permissions is used <strong>only</strong> to:</p>
 <ul>
-  <li>Data is retained locally at the user's discretion until the user deletes it.</li>
-  <li>Deleting the local data store <strong>permanently removes all data</strong>.</li>
-  <li>The user may revoke the application's access at any time from the third-party service's
-      account permissions page, after which the application immediately loses access.</li>
+  <li>store a local, personal copy of the owner's own health history;</li>
+  <li>produce trend charts, longitudinal summaries and a local dashboard for the owner's own review;</li>
+  <li>let the owner compare their own wearable data with their own medical test results when preparing
+      for a doctor's appointment.</li>
+</ul>
+<p>It is <strong>not</strong> used to:</p>
+<ul>
+  <li>sell, rent, license, trade or transfer data to anyone;</li>
+  <li>advertise, market, profile, score or make automated decisions about any person;</li>
+  <li>determine eligibility for credit, insurance, employment, housing or healthcare;</li>
+  <li>train, fine-tune, evaluate or improve any AI or machine-learning model, whether the owner's own or
+      a third party's;</li>
+  <li>generate, edit or distribute any synthetic media — and specifically never to create or distribute
+      <strong>AI-generated non-consensual intimate imagery (AI NCII)</strong> or any other sexual or
+      intimate content, real or synthetic.</li>
 </ul>
 
-<h2>6. Security</h2>
+<h2>5. Storage and location</h2>
+<ul>
+  <li>All data is stored <strong>locally on the owner's own computer</strong>, in a database file
+      (<code>health.db</code>) and exported copies (CSV / Parquet / original JSON) in the owner's own
+      private folder.</li>
+  <li>There is <strong>no cloud backend, no server, no remote database and no hosted copy</strong>. The
+      application has no server-side component at all.</li>
+  <li>No data is synchronised to cloud drives, file-sharing services, note apps or third-party storage.</li>
+  <li>Data is not transferred internationally by the application, because it does not leave the owner's
+      device.</li>
+</ul>
+
+<h2>6. Sharing and disclosure</h2>
 <p>
-  The application runs only on the user's own device. All network communication uses HTTPS. Because data
-  never leaves the device, there is no server-side data exposure.
+  <strong>No sharing.</strong> The application does not sell, rent, share, transfer, publish or disclose
+  Google user data, or any other personal data, to any third party — including service providers,
+  contractors, advertisers, analytics vendors, data brokers or affiliates. There are no third-party SDKs,
+  no telemetry, no crash reporting and no remote logging. The only person who can read the data is the
+  owner.
+</p>
+<p>
+  The only exception would be a disclosure required by applicable law, and because the data never leaves
+  the owner's device, no such disclosure mechanism exists in the application.
 </p>
 
-<h2>7. Third-party API terms</h2>
+<h2>7. Google API Services User Data Policy — Limited Use</h2>
 <p>
-  Use of third-party APIs complies with the applicable
-  <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>,
-  including its Limited Use requirements. Data obtained through those APIs is used solely to provide
-  the functionality requested by the authorizing user, and for no other purpose.
+  Health Data Tracker's use and transfer of information received from Google APIs adheres to the
+  <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User
+  Data Policy</a>, including the <strong>Limited Use</strong> requirements. In particular:
+</p>
+<ul>
+  <li>Google user data is used only to provide the user-facing features described in section 4;</li>
+  <li>it is not transferred to third parties except as necessary to provide those features (in practice:
+      never), or for security/legal compliance, or as part of a merger with prior consent;</li>
+  <li>it is not used for advertising, and is not sold;</li>
+  <li>it is not used to train or improve generalised or non-personalised AI/ML models, and no human reads
+      it other than the owner.</li>
+</ul>
+
+<h2>8. Retention and deletion</h2>
+<h3>8.1 Retention</h3>
+<p>
+  Data is kept locally only for as long as the owner wants to keep their own history. There is no
+  automatic expiry, because the point of the tool is a long-term personal record.
+</p>
+<h3>8.2 How to delete everything</h3>
+<ol>
+  <li><strong>Delete the local data:</strong> remove the application's data folder (including
+      <code>health.db</code> and exported files) from the owner's computer. Deletion is immediate and
+      permanent; the application keeps no backup copy anywhere else.</li>
+  <li><strong>Revoke Google access:</strong> at
+      <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>, remove
+      Health Data Tracker. This invalidates the stored tokens at Google's side; any further API call
+      fails.</li>
+  <li><strong>Clear stored credentials:</strong> remove the application's entry from Windows Credential
+      Manager, so no token remains on the device.</li>
+  <li><strong>By email:</strong> send a deletion request to
+      <a href="mailto:tol_43@163.com">tol_43@163.com</a>. Because the owner is the only user and the data
+      is not held on any server, a request is confirmed and completed within <strong>30 days</strong>;
+      in practice there is nothing remote to delete, and the request is answered with confirmation and
+      step-by-step local deletion instructions.</li>
+</ol>
+<p>
+  Note that Google retains its own copy of the owner's health data in the owner's Google Account; deleting
+  data from this application does not delete it from Google. That data is governed by
+  <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> and can be managed in the
+  owner's Google Account.
 </p>
 
-<h2>8. Contact</h2>
-<p>No personal contact details are published on this page.</p>
+<h2>9. Security</h2>
+<ul>
+  <li>All communication with Google uses HTTPS/TLS; the application does not accept plaintext
+      connections.</li>
+  <li>OAuth tokens live in the operating system's credential store, not in project files.</li>
+  <li>Data at rest is protected by the device's own access controls (Windows account login, disk
+      encryption if enabled, physical control of the machine).</li>
+  <li>The application is not exposed to the internet: it has no listening server, no public endpoint and
+      no remote access path.</li>
+  <li>Because no data is stored server-side, there is no server-side data breach surface for this
+      application.</li>
+</ul>
+
+<h2>10. Children</h2>
+<p>
+  The application is not directed to children and is not used by anyone other than its adult owner. It
+  does not knowingly collect data from children under 13 (or the minimum age in the owner's
+  jurisdiction).
+</p>
+
+<h2>11. The owner's rights</h2>
+<p>
+  The owner can, at any time and without asking anyone: view all stored data (it is local), export it,
+  correct it, delete it, and revoke the application's Google access. Since the owner is the data subject
+  and the only operator, these rights are exercised directly; the contact address below is available for
+  any question or request.
+</p>
+
+<h2>12. Changes to this policy</h2>
+<p>
+  If the application's data handling changes, this page is updated and the "Last updated" date at the top
+  changes with it. The current version is always the one published at
+  <a href="https://laoxiaop.github.io/privacy.html">laoxiaop.github.io/privacy.html</a>.
+</p>
+
+<h2 id="contact">13. Contact</h2>
+<p>
+  Health Data Tracker — data controller and operator: the app owner.<br>
+  Email: <a href="mailto:tol_43@163.com">tol_43@163.com</a>
+</p>
 
 <hr>
 
-<h2>隐私政策（中文摘要）</h2>
-<p>
-  本政策适用于一个<strong>仅供个人使用的私有应用</strong>，由单一使用者本人运行，不对外提供服务。
-</p>
+<h2>隐私政策 · 中文摘要</h2>
 <ul>
-  <li><strong>访问范围</strong>：仅访问使用者在第三方服务授权页面上明确授权的数据，授权范围以该页面当时显示为准，使用者可随时撤销。</li>
-  <li><strong>存储</strong>：所有数据仅保存在使用者本人设备本地，<strong>没有云端服务器，不上传</strong>。凭据存放于操作系统凭据管理器。</li>
-  <li><strong>共享</strong>：<strong>不向任何第三方出售、共享或披露</strong>，不用于广告或任何商业目的。</li>
-  <li><strong>删除</strong>：使用者删除本地数据即彻底清除；也可随时在第三方服务中撤销授权。</li>
-  <li><strong>第三方 API</strong>：遵循 Google API 服务用户数据政策，包括有限使用要求。</li>
+  <li><strong>性质</strong>：Health Data Tracker 是仅供单一使用者本人使用的私有工具，无其他用户，不对外提供服务。</li>
+  <li><strong>读取范围</strong>：仅通过 Google OAuth 授权页读取使用者本人的四类<strong>只读</strong>数据——活动与健身、身体指标与测量、睡眠、运动轨迹；不读取 Gmail、通讯录、日历、云端硬盘等，也不索取姓名或邮箱。</li>
+  <li><strong>用途</strong>：仅用于本人生成趋势图、对照自身检查结果；<strong>不销售、不共享、不用于广告或画像、不用于训练任何 AI 模型</strong>，也绝不会生成或传播 AI 合成的未经同意的私密影像（AI NCII）。</li>
+  <li><strong>存储</strong>：全部数据仅存于本人电脑本地（<code>health.db</code> 与导出文件），无服务器、无云端、不上传。令牌存放于 Windows 凭据管理器。</li>
+  <li><strong>删除</strong>：删除本地数据文件夹即彻底清除；可在 <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a> 撤销授权；或发邮件至 <a href="mailto:tol_43@163.com">tol_43@163.com</a>，30 天内答复处理。</li>
+  <li><strong>合规</strong>：遵循 Google API 服务用户数据政策，包括有限使用（Limited Use）要求。</li>
 </ul>
-<p class="muted">本页不公开个人联系方式。</p>
 
 </body>
 </html>

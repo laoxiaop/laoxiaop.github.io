@@ -3,70 +3,175 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow, noarchive">
-<title>Private Client Application</title>
+<title>Health Data Tracker</title>
+<meta name="description" content="Health Data Tracker is a private, single-user application that reads the owner's own health and fitness data through Google's OAuth-authorized Google Health API and stores it locally for personal trend analysis. No login required to read this page.">
+<link rel="canonical" href="https://laoxiaop.github.io/">
+<meta property="og:title" content="Health Data Tracker">
+<meta property="og:description" content="A private, single-user health data tracking application. Purpose, Google API usage, privacy policy and terms of service.">
+<meta property="og:type" content="website">
 <style>
   :root { color-scheme: light dark; }
   body {
-    margin: 0 auto; max-width: 640px; padding: 72px 24px 96px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.8; color: #1f2328; background: #fff;
+    margin: 0 auto; max-width: 720px; padding: 56px 24px 96px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+    line-height: 1.75; color: #1f2328; background: #fff;
   }
   @media (prefers-color-scheme: dark) {
     body { color: #e6edf3; background: #0d1117; }
     a { color: #6cb6ff; }
     hr { border-color: #30363d; }
-    .muted { color: #8b949e; }
+    .muted, .meta { color: #9198a1; }
+    th { background: #161b22; }
+    td, th { border-color: #30363d; }
+    .callout { background: #161b22; border-color: #30363d; }
   }
-  h1 { font-size: 1.5rem; font-weight: 600; margin: 0 0 .2em; }
-  h2 { font-size: 1rem; font-weight: 600; margin-top: 2.2em; }
-  .muted { color: #656d76; font-size: .92rem; }
-  ul { padding-left: 1.3em; }
-  hr { margin: 3em 0; border: 0; border-top: 1px solid #d8dee4; }
+  h1 { font-size: 1.7rem; font-weight: 650; margin: 0 0 .15em; letter-spacing: -.01em; }
+  h2 { font-size: 1.08rem; font-weight: 650; margin-top: 2.3em; }
+  .sub { margin: 0 0 .35em; font-size: 1.02rem; color: #57606a; }
+  .meta { color: #656d76; font-size: .9rem; }
+  ul { padding-left: 1.25em; }
+  li { margin: .3em 0; }
+  a { color: #0969da; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  hr { margin: 2.8em 0; border: 0; border-top: 1px solid #d8dee4; }
+  table { width: 100%; border-collapse: collapse; margin: 1em 0; font-size: .94rem; }
+  th, td { text-align: left; vertical-align: top; border: 1px solid #d8dee4; padding: .5em .6em; }
+  th { background: #f6f8fa; font-weight: 600; white-space: nowrap; }
+  .callout { background: #f6f8fa; border: 1px solid #d8dee4; border-radius: 6px; padding: .85em 1em; margin: 1.4em 0; }
+  nav a { margin-right: 1.1em; font-size: .94rem; }
 </style>
 </head>
 <body>
 
-<h1>Private Client Application</h1>
-<p class="muted">Single-user · not a public service</p>
+<h1>Health Data Tracker</h1>
+<p class="sub">A private, single-user application for tracking one person's own health and fitness data.</p>
+<p class="meta">Last updated: 2026-11-09 · Operator: a single individual (the app owner) · <a href="#contact">Contact</a></p>
 
-<h2>About</h2>
+<nav aria-label="Site">
+  <a href="./">Home</a>
+  <a href="./privacy.html">Privacy Policy</a>
+  <a href="./terms.html">Terms of Service</a>
+</nav>
+
+<div class="callout">
+  <strong>No login required.</strong> Everything on this page is public and readable without an account,
+  sign-up or login. This website hosts static informational pages only — there is no user area,
+  no registration form and no dashboard behind a login wall.
+</div>
+
+<h2>What this application is for</h2>
 <p>
-  This site belongs to a <strong>private software application</strong> operated by a single individual
-  for their own personal use. It is not a commercial product, not a public service, and does not
-  accept registrations or additional users.
+  <strong>Health Data Tracker</strong> is a personal record-keeping tool. Its purpose is to gather the
+  owner's own health and fitness data from Google's health service, keep it in one place on the owner's
+  own computer, and show it back as trend charts and longitudinal summaries — so that the owner can
+  discuss their own history with a doctor, spot long-term changes, and keep their records complete.
+</p>
+<p>
+  It is not a commercial product, not a public service, not a medical device, and it is not offered to
+  or usable by anyone other than its owner. It does not diagnose, treat, or give medical advice, and it
+  does not accept registrations.
 </p>
 
-<h2>What it does</h2>
+<h2>What it does, step by step</h2>
+<ul>
+  <li>The owner opens the application on their own Windows computer and authorises it once through
+      Google's own OAuth consent screen.</li>
+  <li>The application then reads the owner's own Google Health data through the Google Health API,
+      using only the read-only permissions the owner approved (see the table below).</li>
+  <li>The data is written to a local database file on the owner's computer, together with the original
+      files exported from Google.</li>
+  <li>The application renders local trend charts and a browsable dashboard from that local file.
+      Nothing is uploaded, published, or sent anywhere.</li>
+</ul>
+
+<h2>Which Google user data it accesses, and why</h2>
+<table>
+  <thead>
+    <tr><th>Google API permission (scope)</th><th>Data covered</th><th>Why the application needs it</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>googlehealth.activity_and_fitness.readonly</code></td>
+      <td>Steps, distance, calories, active minutes, exercise sessions</td>
+      <td>To show activity and exercise trends over time.</td>
+    </tr>
+    <tr>
+      <td><code>googlehealth.health_metrics_and_measurements.readonly</code></td>
+      <td>Heart rate, weight, body composition and other body measurements</td>
+      <td>To chart measured health values alongside the owner's own medical test results.</td>
+    </tr>
+    <tr>
+      <td><code>googlehealth.sleep.readonly</code></td>
+      <td>Sleep sessions, sleep stages and duration</td>
+      <td>To chart sleep duration and timing over time.</td>
+    </tr>
+    <tr>
+      <td><code>googlehealth.location.readonly</code></td>
+      <td>Location tracks attached to the owner's own exercise sessions</td>
+      <td>To display the route and distance of the owner's own workouts.</td>
+    </tr>
+  </tbody>
+</table>
+<p class="meta">
+  Every permission is read-only. Access is bounded by the consent the owner granted at
+  <code>accounts.google.com</code>, and the owner can revoke it at any time at
+  <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.
+</p>
+
+<h2>How the data is used</h2>
+<ul>
+  <li><strong>Only for the owner's own personal tracking.</strong> No other purpose, no other person.</li>
+  <li><strong>Never sold, rented, shared or disclosed</strong> to any third party, advertiser, data broker
+      or analytics provider.</li>
+  <li><strong>Never used for advertising, profiling, credit, insurance or employment decisions.</strong></li>
+  <li><strong>Never used to train or improve AI/ML models</strong>, and never fed to any third-party
+      model or service.</li>
+  <li><strong>No generative AI at all.</strong> The application does not generate, edit or distribute
+      AI-generated images, video or audio of any person. It never creates or distributes
+      <em>AI-generated non-consensual intimate imagery (AI NCII)</em> or any other synthetic intimate
+      content, and it never processes Google user data for that purpose.</li>
+</ul>
 <p>
-  The application connects to third-party services that the owner has <strong>explicitly authorized
-  through that service's own consent screen</strong>, and stores the resulting data locally on the
-  owner's own device. No data is published, transmitted, or made available on this website.
+  Use of Google APIs and of data received from them complies with the
+  <a href="https://developers.google.com/terms">Google APIs Terms of Service</a> and the
+  <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User
+  Data Policy</a>, including its Limited Use requirements. Details are in the
+  <a href="./privacy.html">Privacy Policy</a>.
 </p>
 
 <h2>What this website contains</h2>
 <ul>
-  <li>This informational page</li>
-  <li>A <a href="./privacy.html">privacy policy</a></li>
-  <li>A <a href="./terms.html">terms of service</a></li>
-  <li>One domain-ownership verification file</li>
+  <li>This page (what the application is and what it does)</li>
+  <li><a href="./privacy.html">Privacy Policy</a></li>
+  <li><a href="./terms.html">Terms of Service</a></li>
+  <li>One Google Search Console domain-ownership verification file</li>
 </ul>
-<p>No user data, personal information, or application content is hosted here.</p>
+<p class="meta">
+  No user data, personal health information, or application content is hosted on this website.
+  The site is plain static HTML with no cookies, no tracking scripts and no analytics.
+</p>
+
+<h2 id="contact">Contact</h2>
+<p>
+  Questions about this application, this website, or a data deletion request:
+  <a href="mailto:tol_43@163.com">tol_43@163.com</a>.
+</p>
 
 <hr>
 
-<h2>关于本页</h2>
+<h2>中文说明</h2>
 <p>
-  本网站属于一个<strong>仅供个人使用的私有软件应用</strong>，由单一使用者本人运行。
-  它不是商业产品，不对外提供服务，也不接受注册。
+  <strong>Health Data Tracker</strong> 是由单一使用者本人运行的<strong>私有健康数据记录工具</strong>。
+  它通过 Google 的 OAuth 授权页读取使用者本人的健康与运动数据（活动、身体指标、睡眠、运动轨迹），
+  仅保存在使用者本人的电脑本地，用于生成个人趋势图，便于就诊时对照病史。
 </p>
 <p>
-  该应用仅访问使用者本人在第三方服务的授权页面上<strong>明确授权</strong>的数据，
-  并将结果保存在使用者本人的设备上。本网站不发布、不传输、不提供任何数据。
+  本应用不对外提供服务、不接受注册、不销售或共享任何数据、不用于广告，也<strong>不用于任何生成式 AI 处理</strong>，
+  更不会生成或传播 AI 合成的未经当事人同意的私密影像（AI NCII）。
+  数据用途遵循 Google API 服务用户数据政策（含有限使用要求）。
 </p>
-<p class="muted">
-  本页内容为满足第三方开放平台的应用配置要求而提供。<br>
-  This page is provided to satisfy third-party platform application configuration requirements.
+<p class="meta">
+  本页与隐私政策、服务条款均<strong>无需登录即可查看</strong>。联系邮箱：<a href="mailto:tol_43@163.com">tol_43@163.com</a>。
 </p>
 
 </body>
